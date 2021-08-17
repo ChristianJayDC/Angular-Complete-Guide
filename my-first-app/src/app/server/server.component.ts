@@ -6,11 +6,20 @@ import { Component } from "@angular/core";
 })
 
 export class ServerComponent {
-  serverID = 261998;
-  serverName = 'Naning Server';
+  serverID = Math.floor((Math.random() * 100000) + 1);
+  randomNum = Math.floor((Math.random() * 100) + 1);
+  serverName = 'Server' + this.randomNum;
   serverStatus = 'Offline';
+
+  constructor() {
+    this.serverStatus = Math.random() > 0.5 ? 'online' : 'offline';
+  }
 
   getServerStatus() {
     return this.serverStatus;
+  }
+
+  getColor() {
+    return this.serverStatus === 'online' ? 'green' : 'red';
   }
 }
