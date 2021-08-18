@@ -1,2 +1,2 @@
 # Angular-Complete-Guide
-All Angular exercises
+All Angular exercises and projects
