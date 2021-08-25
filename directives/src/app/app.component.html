@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+      <br><br>
+      <ul class="list-group">
+        <div *ngIf="onlyOdd">
+          <li class="list-group-item" [ngClass]="{odd: odd % 2 !== 0}" *ngFor="let oddNumber of oddNumbers">
+            {{ oddNumber }}
+          </li>
+        </div>
+        <!-- <div *ngIf="onlyOdd">
+          <li class="list-group-item" [ngClass]="{odd: odd % 2 !== 0}" *ngFor="let oddNumber of oddNumbers">
+            {{ oddNumber }}
+          </li>
+        </div>
+        <div *ngIf="!onlyOdd">
+          <li class="list-group-item" *ngFor="let evenNumber of evenNumbers">
+            {{ evenNumber }}
+          </li>
+        </div> -->
+        <div *appUnless="onlyOdd">
+          <li class="list-group-item" [ngClass]="{odd: odd % 2 !== 0}"
+            [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'aqua' : 'transparent'}" *ngFor="let oddNumber of oddNumbers">
+            {{ oddNumber }}
+          </li>
+        </div>
+
+      </ul>
+
+      <p appBasicHighlight>Style me Bwisit ka</p>
+      <p appBetterHighlight [defaultColor]="'yellow'" [highlightColor]="'firebrick'">Style me Bwisit ka</p>
+
+      <div [ngSwitch]="value">
+        <div *ngSwitchCase="5">Value is 5</div>
+        <div *ngSwitchCase="10">Value is 10</div>
+        <div *ngSwitchCase="100">Value is 100</div>
+        <div *ngSwitchDefault>Value is Default</div>
+      </div>
+    </div>
+  </div>
+</div>
